@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, View, Button } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 import { useState } from 'react';
@@ -33,12 +32,8 @@ function ImageDownloader({ url, name }) {
     setIsDownloading(true);
     const downloadResumable = FileSystem.createDownloadResumable(url, filePath);
 
-    console.log({ downloadResumable });
-
     try {
       const { uri } = (await downloadResumable.downloadAsync()) || {};
-      console.log('clicked');
-      console.log('Finished downloading to ', uri);
     } catch (e) {
       console.error(e);
     } finally {
@@ -53,9 +48,10 @@ function ImageDownloader({ url, name }) {
       {!isDownloading && (
         <>
           <Image
-            source={{ uri: FileSystem.documentDirectory + name }}
+            source={{ uri: filePath }}
             style={{ width: 100, height: 100 }}
           />
+          <Text>File Path: {filePath}</Text>
           <Text>File Size: {JSON.stringify(fileInfo)}</Text>
         </>
       )}
