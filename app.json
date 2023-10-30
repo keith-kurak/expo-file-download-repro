@@ -30,8 +30,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "691ef8f5-c91c-418c-98fc-ee76aa72f6de"
+        "projectId": "df929175-9f07-48aa-89dc-e6595b9e0e58"
       }
-    }
+    },
+    "owner": "keith-kurak"
   }
 }
